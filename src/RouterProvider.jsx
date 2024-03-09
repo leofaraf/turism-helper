@@ -282,8 +282,8 @@ const RouterProvider = ({children}) => {
   ]
   const [sights, setSights] = useState(defualtSights)
   const [result, setResult] = useState({
-    data: null, // [[sight_index, is_start ? null : trip_in_minuts]]
-    sum_in_minuts: 0,
+    data: [], // [[sight_index, is_start ? null : trip_in_minuts]]
+    sumInMinuts: 0,
     remainder: 0,
     errors: []
   })
@@ -351,14 +351,14 @@ const RouterProvider = ({children}) => {
     console.log("Merged: ", m)
 
     let errors = []
-    if (!start) errors.push("Устоновите стартовую позицию")
-    if (!maxTime) errors.push("Устоновите макс. время")
+    if (!start.length > 0) errors.push("Устоновите стартовую позицию")
+    if (!maxTime > 0) errors.push("Устоновите макс. время")
 
     let data = []
     let sumInMinuts = 0
     let maxTimeInMinutes = maxTime*60
     
-    if (start.length > 0 && maxTime > 0) {
+    if (errors.length == 0) {
       let graph = []
       m.map((pair1) => {
         let distances = m.map(pair2 => new Trip(pair1[0].cords, pair2[0].cords))

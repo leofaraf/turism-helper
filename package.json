@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "tauri": "tauri dev"
+    "td": "tauri dev",
+    "tb": "tauri build"
   },
   "dependencies": {
     "@tauri-apps/api": "^1",

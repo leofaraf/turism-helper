@@ -8,9 +8,9 @@ import Map from "./Map";
 function App() {
   return (
     <>
-      <div className="p-4 h-screen flex flex-col gap-4 items-center justify-between">
-        <div className="bg-gray-200 w-full h-full">
-          {/* <Map></Map> */}
+      <div className="p-4 h-screen flex flex-col items-center justify-between">
+        <div className="w-full h-screen flex flex-col gap-4">
+          <Map />
           <Footer />
         </div>
       </div>
