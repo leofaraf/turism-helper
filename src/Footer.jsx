@@ -2,6 +2,10 @@ import { useContext } from "react"
 import { RouterContext } from "./RouterProvider"
 import Popup from "reactjs-popup"
 import { GoX } from "react-icons/go";
+import { FaCar } from "react-icons/fa";
+import { FaWalking } from "react-icons/fa";
+
+
 
 const Footer = () => {
     const routerContext = useContext(RouterContext)
@@ -41,8 +45,13 @@ const Footer = () => {
                                     return (
                                         <>
                                             {trip && (
-                                                <p className="text-sm">
-                                                    Переход к другой достопремечательности {trip.duration} мин.
+                                                <p className="text-sm flex items-center gap-3 text-black">
+                                                    Переход к другой достопремечательности {trip.duration} мин. 
+                                                    {trip.mode == "walk" ? (
+                                                        <FaWalking />
+                                                    ) : (
+                                                        <FaCar />
+                                                    )}
                                                 </p>
                                             )}
                                             <div className="flex bg-gray-300 p-3 justify-between rounded-lg">

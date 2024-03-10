@@ -7,7 +7,8 @@ class Trip {
     this.start = start;
     this.end = end;
     this.distance = this.getDistanceM(start, end);
-    this.duration = this.getDurectionM(this.distance, this.distance < 1000  ? "walk" : "car");
+    this.mode = this.distance < 1000  ? "walk" : "car"
+    this.duration = this.getDurectionM(this.distance, this.mode);
   }
 
   getDurectionM(dist, mode) {
