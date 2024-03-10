@@ -7,15 +7,15 @@ class Trip {
     this.start = start;
     this.end = end;
     this.distance = this.getDistanceM(start, end);
-    this.duration = this.getDurectionM(this.distance, "car");
+    this.duration = this.getDurectionM(this.distance, this.distance < 1000  ? "walk" : "car");
   }
 
   getDurectionM(dist, mode) {
     let movePerMinute
     if (mode == "walk") {
-        movePerMinute = 80
+        movePerMinute = 60
     } else if (mode == "car") {
-        movePerMinute = 400
+        movePerMinute = 200
     }
 
     return Math.round(
