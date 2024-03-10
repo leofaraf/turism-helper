@@ -302,9 +302,11 @@ const RouterProvider = ({children}) => {
   }
 
   function dijkstra(graph) {
+    console.log("Algorightm started")
     const numNodes = graph.length;
     const visited = new Array(numNodes).fill(false);
     const path = [];
+    console.log("Init: ", numNodes, visited, path)
     
     // Start from the first node
     let currentNode = 0;
@@ -316,9 +318,13 @@ const RouterProvider = ({children}) => {
       let minDistance = Infinity;
   
       for (let j = 0; j < numNodes; j++) {
+        console.log("J ", j)
+        console.log("Visited: ", visited)
+        console.log(graph[currentNode][j].distance, minDistance)
         if (!visited[j] && graph[currentNode][j].distance < minDistance) {
           nearestNeighbor = j;
-          minDistance = graph[currentNode][j];
+          minDistance = graph[currentNode][j].distance;
+          console.log("Min dist", minDistance)
         }
       }
   
@@ -327,6 +333,8 @@ const RouterProvider = ({children}) => {
         path.push(nearestNeighbor);
         currentNode = nearestNeighbor;
       }
+
+      console.log("Init: ", i, numNodes, visited, path)
     }
   
     return path;
